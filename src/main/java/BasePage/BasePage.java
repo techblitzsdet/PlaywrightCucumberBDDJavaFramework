@@ -70,4 +70,23 @@ public class BasePage {
             Assert.fail(t.getMessage());
         }
     }
+
+
+    public void selectCheckbox(String locatorKey,String value) {
+        try {
+            page.locator(PlaywrightDriver.OR.getProperty(locatorKey)).check();
+        } catch (Throwable t) {
+            Assert.fail(t.getMessage());
+        }
+    }
+
+    public String getInnerText(String locatorKey) {
+        try {
+            return page.locator(PlaywrightDriver.OR.getProperty(locatorKey)).innerText();
+        } catch (Throwable t) {
+            Assert.fail(t.getMessage());
+            return null;
+        }
+    }
+
 }
