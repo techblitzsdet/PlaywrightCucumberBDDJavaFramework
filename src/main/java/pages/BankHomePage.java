@@ -4,7 +4,9 @@ import BasePage.BasePage;
 import org.testng.Assert;
 import org.xml.sax.Locator;
 
-public class BankingAppHomePage extends BasePage {
+public class BankHomePage extends BasePage {
+
+    String actualText;
 
     public void enterFirstName(String firstName){
         type("FirstName_CSS",firstName);
@@ -46,7 +48,7 @@ public class BankingAppHomePage extends BasePage {
     public String registrationValidationMessage() {
 
         isElementPresent("registration_validation_CSS");
-        String actualText = getInnerText("registration_validation_CSS");
+        actualText = getInnerText("registration_validation_CSS");
         return actualText;
 
     }
