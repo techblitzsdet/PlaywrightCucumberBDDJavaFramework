@@ -13,12 +13,23 @@ public class Hooks {
 
 
     public Page page;
+    private static final ThreadLocal<Scenario> currentScenario = new ThreadLocal<>();
 
-    @Before
+
+    @Before(order=0)
     public void setUp() {
 
         PlaywrightDriver.setupDriver();
 
+    }
+
+    @Before(order=1)
+    public void setScenario(Scenario scenario) {
+        currentScenario.set(scenario);
+    }
+
+    public static Scenario getCurrentScenario() {
+        return currentScenario.get();
     }
 
     @After

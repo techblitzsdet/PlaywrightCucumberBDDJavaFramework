@@ -6,10 +6,13 @@ import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.BankHomePage;
 import utils.PlaywrightDriver;
+import utils.ScreenshotHelper;
+
 
 public class BankAppSteps {
 
     BankHomePage bankHomePage=new BankHomePage();
+    private final ScreenshotHelper screenshotHelper = new ScreenshotHelper();
 
     @Given("I am on the {string} page")
     public void i_am_on_the_page(String string) {
@@ -27,6 +30,7 @@ public class BankAppSteps {
     public void i_enter_in_the_first_name_field(String first_name) {
 
         bankHomePage.enterFirstName(first_name);
+        screenshotHelper.takeScreenshot("After entering firstName");
 
     }
     @When("I enter {string} in the Last Name field")
@@ -38,6 +42,8 @@ public class BankAppSteps {
     @When("I enter {string} in the Email field")
     public void i_enter_in_the_email_field(String email) {
         bankHomePage.enterEmailID(email);
+        screenshotHelper.takeScreenshot("After entering emailID");
+
 
     }
 
@@ -63,6 +69,8 @@ public class BankAppSteps {
     public void i_enter_in_the_about_yourself_field(String about){
 
         bankHomePage.enterAboutYourSelf(about);
+        screenshotHelper.takeScreenshot("After entering About Section");
+
 
 
     }
