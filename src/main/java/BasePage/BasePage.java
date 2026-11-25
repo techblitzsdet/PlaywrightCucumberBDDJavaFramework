@@ -89,4 +89,19 @@ public class BasePage {
         }
     }
 
+    public void clickByText(String text) {
+        try {
+            page.getByText(text, new Page.GetByTextOptions().setExact(true)).click();
+        } catch (Exception e) {
+            Assert.fail("Could not click text '" + text + "': " + e.getMessage());
+        }
+    }
+
+    public void typeByPlaceholder(String placeholder, String value) {
+        try {
+            page.getByPlaceholder(placeholder).fill(value);
+        } catch (Exception e) {
+            Assert.fail("Could not type into field with placeholder '" + placeholder + "': " + e.getMessage());
+        }
+    }
 }

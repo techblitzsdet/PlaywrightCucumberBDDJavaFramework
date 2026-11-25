@@ -17,7 +17,7 @@ public class BankAppSteps {
     @Given("I am on the {string} page")
     public void i_am_on_the_page(String string) {
 
-        PlaywrightDriver.openPage(PlaywrightDriver.config.getProperty("siteurl"));
+        PlaywrightDriver.openPage(PlaywrightDriver.config.getProperty("bankAppurl"));
 
     }
 
